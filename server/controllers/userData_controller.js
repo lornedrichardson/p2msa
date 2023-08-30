@@ -22,7 +22,7 @@ userDataController.get("/", async (req, res) => {
 
 //check username and password(pw) are in the database
 //try to fetch like https:localhost:3001/user/login
-//have to use post method because get dont take any data from front end
+//have to use post method because get don't take any data from front end
 userDataController.post('/login',async (req,res) => {
   const { username } = req.body
   const { password } = req.body
@@ -51,7 +51,7 @@ userDataController.post('/login',async (req,res) => {
 })
 
 
-//Creat new data
+//Create new data
 //post username and pw in the data object {data:{username:something,pw:something}}
 userDataController.post("/", async (req, res) => {
   console.log(req.body)
@@ -65,7 +65,7 @@ userDataController.post("/", async (req, res) => {
       }
     });
     res.status(200).json({
-      message:'sussece',
+      message:'success',
       data: allUsers
     });
     await prisma.$disconnect()
@@ -96,7 +96,7 @@ userDataController.put("/:user_id", async (req, res) => {
     });
     console.log(allUsers);
     res.status(200).json({
-      message:'sussece',
+      message:'success',
       data: allUsers
     });
     await prisma.$disconnect()
@@ -124,7 +124,7 @@ userDataController.delete("/:user_id", async (req, res) => {
           where:{user_id: req.params.user_id}
       })
       res.status(200).json({
-          message: 'sussece',
+          message: 'success',
           delete: deleteGameData,
           data:deletegame
       });

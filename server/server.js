@@ -1,8 +1,6 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const { Sequelize } = require('sequelize');
-const path = require('path');
 const cors = require('cors');
 
 //CONFIGURATION / MIDDLEWARE

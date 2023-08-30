@@ -41,7 +41,7 @@ gameDataController.get("/filters", async (req, res) => {
     }
 });
 
-//Creat new data
+//Create new data
 //post gamedata inside of the data object {data:{all the data}}
 gameDataController.post("/", async (req, res) => {
     console.log(req.body.data)
@@ -50,7 +50,7 @@ gameDataController.post("/", async (req, res) => {
             data: req.body.data
         });
         res.status(200).json({
-            message: 'sussece',
+            message: 'success',
             data: gameData
         });
         await prisma.$disconnect()
@@ -75,7 +75,7 @@ gameDataController.put("/:session_id", async (req, res) => {
             data: req.body.data
         });
         res.status(200).json({
-            message: 'sussece',
+            message: 'success',
             data: gameData
         });
         await prisma.$disconnect()
@@ -99,7 +99,7 @@ gameDataController.delete("/:session_id", async (req, res) => {
             where:{session_id: req.params.session_id}
         })
         res.status(200).json({
-            message: 'sussece',
+            message: 'success',
             delete: deleteGameData
         });
         await prisma.$disconnect()
