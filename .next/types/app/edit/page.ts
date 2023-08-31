@@ -1,8 +1,8 @@
 // File: C:\Users\Al\Desktop\MSP2\p2msa\app\edit\page.tsx
-import * as entry from '../../../../app/edit/page.js'
+import * as entry from '../../../../app/games/edit/page.jsx'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/edit/page.js')
+type TEntry = typeof import('../../../../app/games/edit/page.jsx')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
