@@ -1,6 +1,3 @@
 {
-  "/games/page": "app/games/page.js",
-  "/games/input/page": "app/games/input/page.js",
-  "/games/edit/page": "app/games/edit/page.js",
-  "/games/display/page": "app/games/display/page.js"
+  "/page": "app/page.js"
 }
