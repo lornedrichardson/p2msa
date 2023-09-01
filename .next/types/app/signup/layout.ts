@@ -1,8 +1,8 @@
-// File: C:\Users\Al\Desktop\MSP2\p2msa\app\signup\layout.tsx
-import * as entry from '../../../../app/signup/layout.js'
+// File: C:\Users\Al\Desktop\MSP2\p2msa\src\app\signup\layout.tsx
+import * as entry from '../../../../src/app/signup/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/signup/layout.js')
+type TEntry = typeof import('../../../../src/app/signup/layout.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
