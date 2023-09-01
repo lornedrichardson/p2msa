@@ -11,10 +11,6 @@ export default function Page() {
             <label >Password</label>
             <input type="password" required/>
           </div>
-          <div>
-            <label>Email</label>
-            <input type="email" />
-          </div>
         </form> 
    </div>
     )
