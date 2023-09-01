@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import { prisma } from '../../server/db/client'
 
@@ -41,13 +40,4 @@ import { prisma } from '../../server/db/client'
             {isInDataBase}
         </div>
     )
-}
-export async function name(username:String,password:String) {
-    const data = await prisma.userdata.findMany()
-    const isInDataBase = data.map((data)=>{
-        if(username === data.username && password === data.pw){
-            return true
-        }
-    })
-    return isInDataBase ?  true : false
 }
