@@ -1,19 +1,13 @@
 'use client'
 import Link from 'next/link'
 import { prisma } from '../../server/db/client'
+import { useState } from 'react'
 
 //HOME PAGE
-  export default async function Page(){
-    const data = await prisma.userdata.findMany()
-    const isInDataBase = data.map((data)=>{
-        return (
-            <div>
-                <p>{data.user_id}</p>
-                <p>{data.username}</p>
-                <p>{data.pw}</p>
-            </div>
-        )
-    })
+  export default function Page(){
+    const [login,setLogin] = useState('li')
+    const [password,setPassword] = useState('123')
+    console.log("this is login info "+login,password)
     return(
         <div>
         <div>
@@ -25,20 +19,20 @@ import { prisma } from '../../server/db/client'
             }}>
             <div>
                 <label >User name</label>
-                <input type="text" required />
+                <input type="text" onChange={(e) => setLogin(e.target.value)} />
             </div>
             <div>
                 <label >Password</label>
-                <input type="password" required />
+                <input type="password" onChange={(e) => setPassword(e.target.value)} />
             </div>
+            <button type='submit'>Log in</button>
             </form> 
         </div>
-            <Link href ="/games">Log In</Link>
+            {/* <Link href ="/games">Log In</Link>
             <div>
                 <p style={{display: 'inline-block'}}>Don't have a account? Sign up today!</p>
                 <Link href ="/signup">Sign up</Link>
-            </div>
-            {isInDataBase}
+            </div> */}
         </div>
     )
 }

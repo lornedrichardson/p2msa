@@ -20,9 +20,12 @@
     "sequelize": "^6.32.1",
     "web-vitals": "^2.1.4"
   },
+  "engines": {
+    "node": ">=16.13"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build ",
     "start": "next start"
   },
   "eslintConfig": {
