@@ -36,12 +36,12 @@ import { useState } from 'react'
         </div>
     )
 }
-export async function name(username:String,password:String) {
-    const data = await prisma.userdata.findMany()
-    const isInDataBase = data.map((data)=>{
-        if(username === data.username && password === data.pw){
-            return true
-        }
-    })
-    return isInDataBase ?  true : false
-}
+// export async function name(username:String,password:String) {
+//     const data = await prisma.userdata.findMany()
+//     const isInDataBase = data.map((data)=>{
+//         if(username === data.username && password === data.pw){
+//             return true
+//         }
+//     })
+//     return isInDataBase ?  true : false
+// }
