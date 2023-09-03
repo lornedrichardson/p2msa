@@ -1,7 +1,7 @@
 'use client'
-import { redirect } from 'next/dist/server/api-utils'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { setCookie, getCookies } from 'cookies-next'
 
 
 export default function Page(){
@@ -18,22 +18,13 @@ export default function Page(){
             })
             const data = await result.json()
             if(data.isLogin) {
-                push(`/games/${data.user_id}`)
+                push(`/games`)
             }else{
                 setIsLoggedIn(false)
             }
         }
         fetchresdata()
     }
-
-    // useEffect(()=>{
-    //     async function fetchData(){
-    //         const result = await fetch('api/user')
-    //         const data = await result.json()
-    //         console.log(data)
-    //     }
-    //     fetchData()
-    // },[islogin])
     return(
         <div>
             <form onSubmit={(e) => {

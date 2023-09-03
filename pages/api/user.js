@@ -1,4 +1,6 @@
+import { setCookie } from "cookies-next";
 import { prisma } from "../../server/db/client";
+import { cookies } from 'next/headers'
 
 export default async function handler(req, res) {
     if (req.method === "GET") {
@@ -16,10 +18,9 @@ export default async function handler(req, res) {
                 }
             })
             if (founduser.length) {
-                console.log(founduser)
-                res.status(200).json({user_id:founduser[0].user_id,isLogin:true})
+                cookies().set('userid',founduser[0].user_id)
+                res.status(200).json({isLogin:true})
             } else {
-                console.log('not found')
                 res.status(404).json({
                     message: 'User not found',
                     isLogin:false
