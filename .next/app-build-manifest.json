@@ -3,6 +3,7 @@
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
     "/layout": [
@@ -15,15 +16,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/login/page.js"
     ],
-    "/games/page": [
+    "/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/games/page.js"
+      "static/css/app/signup/page.css",
+      "static/chunks/app/signup/page.js"
     ],
-    "/games/layout": [
+    "/signup/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/games/layout.js"
+      "static/chunks/app/signup/layout.js"
     ]
   }
 }

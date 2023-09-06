@@ -1,4 +1,4 @@
-// File: E:\UNLV-Coding\milestone\p2\p2msa\app\layout.tsx
+// File: C:\Users\Al\Desktop\MSP2\frontend\p2msa\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
