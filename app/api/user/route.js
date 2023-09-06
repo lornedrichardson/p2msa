@@ -9,11 +9,22 @@ export async function GET(request) {
 
 export async function POST(req) {
     const { username,password } = await req.json()
-    const data = await prisma.userdata.findMany({
+    try {
+    const founduser = await prisma.userdata.findMany({
         where: { username: username, pw: password}
     })
-    console.log(data[0].user_id)
-    cookies().set('user_id', data[0].user_id)
-   
-    return NextResponse.json({isLogin: true})
+    if(founduser.length){
+        console.log(founduser)
+        cookies().set('user_id', founduser[0].user_id)
+        return NextResponse.json({isLogin: true})
+      }else{
+        console.log('not found')
+        return NextResponse.json({isLogin: false})
+    }
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({isLogin: false},{status:500})
+        await prisma.$disconnect()
+    }
   }
+
