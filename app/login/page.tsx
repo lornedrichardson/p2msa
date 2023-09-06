@@ -1,7 +1,6 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { setCookie, getCookies } from 'cookies-next'
 
 
 export default function Page(){
@@ -17,6 +16,7 @@ export default function Page(){
                 body: JSON.stringify({ username:username, pw:password })
             })
             const data = await result.json()
+            console.log(data)
             if(data.isLogin) {
                 push(`/games`)
             }else{
