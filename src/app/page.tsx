@@ -1,21 +1,34 @@
 import Link from 'next/link'
+import { prisma } from '../../server/db/client'
 
 //HOME PAGE
-  export default function Page(){
+  export default async function Page(){
+    const data = await prisma.userdata.findMany()
+    const isInDataBase = data.map((data)=>{
+        return (
+            <div>
+                <p>{data.user_id}</p>
+                <p>{data.username}</p>
+                <p>{data.pw}</p>
+            </div>
+        )
+    })
     return(
         <div>
         <div>
             <h1>Slot Tracker</h1>
         </div>    
         <div>
-            <form>
+            <form onSubmit={(e)=>{
+                e.preventDefault()
+            }}>
             <div>
                 <label >User name</label>
-                <input type="text" required/>
+                <input type="text" required />
             </div>
             <div>
                 <label >Password</label>
-                <input type="password" required/>
+                <input type="password" required />
             </div>
             </form> 
         </div>
@@ -24,6 +37,7 @@ import Link from 'next/link'
                 <p style={{display: 'inline-block'}}>Don't have a account? Sign up today!</p>
                 <Link href ="/signup">Sign up</Link>
             </div>
+            {isInDataBase}
         </div>
     )
 }
