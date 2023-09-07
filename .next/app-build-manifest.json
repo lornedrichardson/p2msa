@@ -11,27 +11,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
     ],
-    "/games/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/signup/page.css",
-      "static/chunks/app/signup/page.js"
-    ],
-    "/signup/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/games/layout.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/signup/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -40,6 +19,7 @@
     "/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/signup/page.css",
       "static/chunks/app/signup/page.js"
     ]
   }

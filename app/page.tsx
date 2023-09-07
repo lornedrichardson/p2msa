@@ -1,8 +1,31 @@
-import Link from 'next/link'
+'use client'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import '../styles/globals.css'
-//HOME PAGE
-export default async function Page() {
-    return (
+
+export default function Page(){
+    const { push } = useRouter()
+    const [username,setUsername] = useState('')
+    const [password,setPassword] = useState('')
+    const [islogin,setIsLoggedIn] = useState(true)
+    const datapass = () => {
+        const fetchresdata = async () => {
+            const result = await fetch('api/user', {
+                method: 'POST',
+                headers: { "Content-type": "application/json; charset=UTF-8" },
+                body: JSON.stringify({ username:username, pw:password })
+            })
+            const data = await result.json()
+            console.log(data)
+            if(data.isLogin) {
+                push(`/games`)
+            }else{
+                setIsLoggedIn(false)
+            }
+        }
+        fetchresdata()
+    }
+    return(
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-indigo-600">
@@ -15,6 +38,7 @@ export default async function Page() {
           </h2>
         </div>
 
+
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
@@ -23,14 +47,12 @@ export default async function Page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="userName"
-                  name="userName"
-                  type="userName"
-                  required
+                  type="text" onChange={(e) => setUsername(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
+
 
             <div>
               <div className="flex items-center justify-between">
@@ -40,14 +62,12 @@ export default async function Page() {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
+                  type="password" onChange={(e) => setPassword(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
+
 
             <div>
             <a href='/'
@@ -59,6 +79,7 @@ export default async function Page() {
             </div>
           </form>
 
+
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
             <a href="/signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
@@ -66,7 +87,7 @@ export default async function Page() {
             </a>
           </p>
         </div>
+        {islogin ? '' : 'dont find match user. Do you want to try again or sign up?'}
       </div>
     )
-}
-
+    }
