@@ -2,7 +2,7 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { prisma } from '../../../server/db/client'
  
-export async function GET(request) {
+export async function GET() {
     const data = await prisma.userdata.findMany()
     return NextResponse.json({ data })
 }
