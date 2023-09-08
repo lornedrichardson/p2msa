@@ -2,6 +2,7 @@ import { prisma } from "../../server/db/client"
 import Filters from "./filters"
 import { cookies } from 'next/headers'
 import Push from "./push"
+import '../../styles/globals.css'
 
 const Page = async ({
   searchParams

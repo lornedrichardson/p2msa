@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import '../../styles/globals.css'
 
 const Push = () => {
     const router = useRouter()
@@ -8,18 +9,23 @@ const Push = () => {
     const [deleteData, setDeleteData] = useState('')
     return (
         <div>
-            <form style={{ display: 'inline-flex' }} onSubmit={(e) => {
-                e.preventDefault();
-            }}>
-                <button onClick={() => { router.push('/games/create/') }}>Create New</button>
-            </form>
-            <form onSubmit={(e) => {
+            <div className="min-h-full">
+  <nav className="bg-gray-800">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="flex h-16 items-center justify-between">
+        <div className="flex items-center">
+          <div className="hidden md:block">
+            <div className="ml-40 flex items-baseline space-x-4">
+              <a onClick={() => { router.push('/games/create/') }} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Create New</a>
+
+              <form onSubmit={(e) => {
                 e.preventDefault();
                 router.push(`/games/edit/${editData}`)
-            }}>
-                <input type="text" onChange={(e) => { setEditData(e.target.value) }} />
-                <button type="submit">Edit</button>
+            }}> 
+                <button type="submit" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Edit</button>
+                <input type="text" className="rounded-md" onChange={(e) => { setEditData(e.target.value) }} />
             </form>
+
             <form onSubmit={async (e) => {
                 const response = confirm("Are you sure you want to do that?");
                 if (response) {
@@ -33,9 +39,19 @@ const Push = () => {
                     alert("Cancel was pressed");
                 }
             }}>
-                <input type="text" onChange={(e) => { setDeleteData(e.target.value) }} />
-                <button type="submit">Delete</button>
+                <button type="submit" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Delete</button>
+                <input type="text" className="rounded-md" onChange={(e) => { setDeleteData(e.target.value) }} />
             </form>
+            </div>
+          </div>
+        </div>
+        <div className="hidden md:block">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+        </div>
         </div>
     )
 }
