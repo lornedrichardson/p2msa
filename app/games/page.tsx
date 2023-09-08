@@ -22,7 +22,8 @@ const Page = async ({
   const time =
     typeof searchParams.timeStart === 'string' ? searchParams.timeStart : undefined
 
-  const auth = cookies().get('user_id').value
+  // const auth = cookies().get('user_id').value
+  const auth = 1
   const where = {
     user_id: Number(auth),
     casino,
@@ -49,6 +50,8 @@ const Page = async ({
       const data = Object.getOwnPropertyDescriptor(arr, prop).value
       if (prop === 'session_start' || prop === 'session_stop') {
         const time = String(data).slice(0, 24)
+
+        // Style Below here in tags
         return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${time} `}</p>
       } else { return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${data} `}</p> }
     })
