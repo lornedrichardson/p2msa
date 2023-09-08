@@ -1,5 +1,0 @@
-{
-  "/signup/page": "app/signup/page.js",
-  "/games/create/page": "app/games/create/page.js",
-  "/games/edit/[id]/page": "app/games/edit/[id]/page.js"
-}
