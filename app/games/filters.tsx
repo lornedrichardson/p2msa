@@ -20,7 +20,7 @@ const Filters = () => {
     }, [casinoDe, router, gameTypeDe, gameNameDe, timeStartDe])
     return (
         <div>
-            <form style={{display:'inline-flex'}}>
+            <form>
                 <div>
                     <label>Loaction:</label>
                     <input type="text" onChange={(e) => { setCasino(e.target.value) }} />

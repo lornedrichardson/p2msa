@@ -42,15 +42,16 @@ const Page = async ({
     }
   });
   const allGameData = await prisma.gamedata.findMany({
-    where
+    where,
+    orderBy:{session_start:'desc'}
   })
   let display = allGameData.map((arr) => {
-    let data = Object.getOwnPropertyNames(arr).map((prop) => {
+    let data = Object.getOwnPropertyNames(arr).map((prop, index) => {
       const data = Object.getOwnPropertyDescriptor(arr, prop).value
       if (prop === 'session_start' || prop === 'session_stop') {
         const time = String(data).slice(0, 24)
-        return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${time} `}</p>
-      } else { return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${data} `}</p> }
+        return <p style={{ display: 'inline-block', padding: '5px' }} key={index}>{`${prop}:${time} `}</p>
+      } else { return <p style={{ display: 'inline-block', padding: '5px' }} key={index}>{`${prop}:${data} `}</p> }
     })
     return <div>{data}</div>
   })
@@ -58,7 +59,7 @@ const Page = async ({
     <div>
       <Push />
       <Filters />
-      {display}
+        {display}
     </div>
   )
 }

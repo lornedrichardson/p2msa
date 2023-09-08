@@ -16,7 +16,6 @@ export default function Page(){
                 body: JSON.stringify({ username:username, pw:password })
             })
             const data = await result.json()
-            console.log(data)
             if(data.isLogin) {
                 push(`/games`)
             }else{
