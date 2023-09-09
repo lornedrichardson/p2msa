@@ -5,10 +5,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
     ],
-    "/games/layout": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/games/layout.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/games/page": [
       "static/chunks/webpack.js",
@@ -16,17 +17,16 @@
       "static/css/app/games/page.css",
       "static/chunks/app/games/page.js"
     ],
+    "/games/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/games/layout.js"
+    ],
     "/games/create/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/games/create/page.css",
       "static/chunks/app/games/create/page.js"
-    ],
-    "/games/edit/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/games/edit/[id]/page.css",
-      "static/chunks/app/games/edit/[id]/page.js"
     ]
   }
 }

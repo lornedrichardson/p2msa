@@ -20,25 +20,34 @@ const Filters = () => {
         router.push(`/games?casino=${casinoDe}&gameType=${gameTypeDe}&gameName=${gameNameDe}&timeStart=${timeStartDe}`)
     }, [casinoDe, router, gameTypeDe, gameNameDe, timeStartDe])
     return (
-        <div>
-            <form style={{display:'inline-flex'}}>
-                <div>
-                    <label>Loaction:</label>
-                    <input type="text" onChange={(e) => { setCasino(e.target.value) }} />
+        <div className=" bg-slate-400 py-3 w-full">
+            <form style={{display:'inline-flex'}} className="px-12">
+                <div className="">
+                <label className="block text-lg font-medium leading-6 text-indigo-600">
+                 Location
+               </label>
+                    <input type="text" className="py-1 rounded-md" onChange={(e) => { setCasino(e.target.value) }} />
                 </div>
-                <div>
-                    <label>Game Type:</label>
-                    <input type="text" onChange={(e) => { setGameType(e.target.value) }} />
+                <div className="px-6">
+                <label className="block text-lg font-medium leading-6 text-indigo-600">
+                 Game Type
+               </label>
+                    <input type="text" className="py-1 rounded-md" onChange={(e) => { setGameType(e.target.value) }} />
                 </div>
-                <div>
-                    <label>Game Name:</label>
-                    <input type="text" onChange={(e) => { setGameName(e.target.value) }} />
+                <div className="px-6">
+                <label className="block text-lg font-medium leading-6 text-indigo-600">
+                 Game Name
+               </label>
+                    <input type="text" className="py-1 rounded-md" onChange={(e) => { setGameName(e.target.value) }} />
                 </div>
-                <div>
-                    <label>Game Date:</label>
-                    <input type="date" onChange={(e) => { setTimeStart(e.target.value) }} />
+                <div className="px-6">
+                <label className="block text-lg font-medium leading-6 text-indigo-600">
+                 Game Date
+               </label>
+                    <input type="date" className="py-0.5 rounded-md" onChange={(e) => { setTimeStart(e.target.value) }} />
                 </div>
-                <input type="reset" value="Reset" onClick={()=>{
+                <input className="rounded-md bg-indigo-600 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+               type="reset" value="Reset" onClick={()=>{
                     setCasino('')
                     setGameType('')
                     setGameName('')

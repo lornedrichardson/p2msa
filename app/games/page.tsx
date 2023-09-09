@@ -46,25 +46,65 @@ const Page = async ({
   const allGameData = await prisma.gamedata.findMany({
     where
   })
-  let display = allGameData.map((arr) => {
-    let data = Object.getOwnPropertyNames(arr).map((prop) => {
-      const data = Object.getOwnPropertyDescriptor(arr, prop).value
+  let display = allGameData.map((arr, index) => {
+    const rowData = Object.getOwnPropertyNames(arr).map((prop) => {
+      const data = Object.getOwnPropertyDescriptor(arr, prop).value;
       if (prop === 'session_start' || prop === 'session_stop') {
-        const time = String(data).slice(0, 24)
-
-        // Style Below here in tags
-        return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${time} `}</p>
-      } else { return <p style={{ display: 'inline-block', padding: '5px' }}>{`${prop}:${data} `}</p> }
-    })
-    return <div>{data}</div>
-  })
+        const time = String(data).slice(0, 24);
+        return (
+          <td
+            key={prop}
+            className="px-7 py-2 font-serif text-center"
+          >{`${time}`}</td>
+        );
+      } else {
+        return (
+          <td
+            key={prop}
+            className="px-5 py-2 font-serif text-center"
+          >{`${data}`}</td>
+        );
+      }
+    });
+  
+    return (
+      <tr key={index} className="border-b border-gray-200">
+        {rowData}
+      </tr>
+    );
+  });
+  
+  
   return (
-    <div>
+    <div className="h-screen bg-slate-200">
       <Push />
       <Filters />
-      {display}
+      <div className="container">
+        <table className="w-screen table-auto">
+          <thead className="bg-slate-300 text-indigo-600">
+            <tr>
+              <th className="px-4 py-2">Session ID</th>
+              <th className="px-4 py-2">User ID</th>
+              <th className="px-4 py-2">Casino</th>
+              <th className="px-4 py-2">Machine</th>
+              <th className="px-4 py-2">Session Start</th>
+              <th className="px-4 py-2">Session Stop</th>
+              <th className="px-4 py-2">Game Type</th>
+              <th className="px-4 py-2">Game</th>
+              <th className="px-4 py-2">Wager Amount</th>
+              <th className="px-4 py-2">Wager Number</th>
+              <th className="px-4 py-2">Win</th>
+              <th className="px-4 py-2">Loss</th>
+              <th className="px-4 py-2">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {display}
+          </tbody>
+        </table>
+      </div>
     </div>
-  )
-}
+  );
+  }
 
 export default Page

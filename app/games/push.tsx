@@ -11,11 +11,11 @@ const Push = () => {
         <div>
             <div className="min-h-full">
   <nav className="bg-gray-800">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className=" max-w-3xl px- sm:px-12 lg:px-8">
       <div className="flex h-16 items-center justify-between">
         <div className="flex items-center">
           <div className="hidden md:block">
-            <div className="ml-40 flex items-baseline space-x-4">
+            <div className=" flex items-baseline space-x-4">
               <a onClick={() => { router.push('/games/create/') }} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Create New</a>
 
               <form onSubmit={(e) => {
