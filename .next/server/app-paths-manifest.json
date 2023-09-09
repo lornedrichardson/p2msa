@@ -1,4 +1,8 @@
 {
+  "/api/user/route": "app/api/user/route.js",
   "/games/page": "app/games/page.js",
-  "/games/create/page": "app/games/create/page.js"
+  "/signup/page": "app/signup/page.js",
+  "/games/create/page": "app/games/create/page.js",
+  "/games/edit/[id]/page": "app/games/edit/[id]/page.js",
+  "/page": "app/page.js"
 }
