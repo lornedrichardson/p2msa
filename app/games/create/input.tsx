@@ -20,10 +20,6 @@ const Input = (prop: any) => {
         loss: null,
         notes: null
     })
-    const [time, setTime] = useState({
-        session_start_time: null,
-        session_stop_time: null,
-    })
     const datapass = async () => {
         const result = await fetch('../../api/games', {
             method: 'POST',
@@ -74,7 +70,7 @@ const Input = (prop: any) => {
                                     machine: e.target.value
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -88,7 +84,7 @@ const Input = (prop: any) => {
                                     session_start: e.target.value,
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -102,7 +98,7 @@ const Input = (prop: any) => {
                                     session_stop: e.target.value
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -116,7 +112,7 @@ const Input = (prop: any) => {
                                     game_type: e.target.value
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -130,7 +126,7 @@ const Input = (prop: any) => {
                                     game: e.target.value
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -144,7 +140,7 @@ const Input = (prop: any) => {
                                     wageramt: e.target.value
                                 }));
                             }}
-                        // required
+                        required
                         />
                     </div>
                     <div>
@@ -204,8 +200,8 @@ const Input = (prop: any) => {
                     onClick={() => {
                         setDataInput(prevState => ({
                             ...prevState,
-                            session_start: `${String(dataInput.session_start)}:00.000Z`,
-                            session_stop: `${String(dataInput.session_stop)}:00.000Z`,
+                            session_start: new Date(dataInput.session_start).toISOString(),
+                            session_stop: new Date(dataInput.session_stop).toISOString(),
                         }))
                     }}>Submit</button>
                     <button type="button" 
