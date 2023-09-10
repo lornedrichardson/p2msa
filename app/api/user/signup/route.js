@@ -7,7 +7,6 @@ export async function POST(req) {
         const data = await prisma.userdata.create({
             data: { username, pw: password }
         })
-        console.log(data)
         return NextResponse.json({isCreate: true })
     } catch (error) {
         if (error.code === "P2002") {

@@ -14,17 +14,13 @@ export async function POST(req) {
         where: { username: username, pw: password}
     })
     if(founduser.length){
-        console.log(founduser)
         cookies().set('user_id', founduser[0].user_id)
         return NextResponse.json({isLogin: true})
       }else{
-        console.log('not found')
         return NextResponse.json({isLogin: false})
     }
     } catch (error) {
-        console.log(error)
         return NextResponse.json({isLogin: false},{status:500})
-        await prisma.$disconnect()
     }
   }
 
