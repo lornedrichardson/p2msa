@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 
 const Edit = ({id})=>{
     const router = useRouter()
-    console.log(id)
     return(
         <button 
         type="submit"

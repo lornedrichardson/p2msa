@@ -15,6 +15,7 @@ const Delete = ({id})=>{
                         headers: { "Content-type": "application/json; charset=UTF-8" },
                         body: JSON.stringify({ session_id: Number(id) })
                     })
+                    router.refresh()
                     alert("Delete succeed");
                 } else {
                     alert("Cancel was pressed");

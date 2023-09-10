@@ -80,11 +80,15 @@ const Page = async ({
           );
         }
       });
+
+      let idData = rowData[0]
+      delete rowData[0]
+
       return (
         <tr key={index} className="border-b border-gray-200">
-          <Edit id={rowData[0]} />
+          <Edit id={idData} />
           {rowData}
-          <Delete id={rowData[0]} />
+          <Delete id={idData} />
         </tr>
       );
     });
