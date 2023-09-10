@@ -27,14 +27,14 @@ export default function Login({ deleteTokens }){
       deleteTokens()
     },[])
     return(
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 h-screen bg-slate-800">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-indigo-600">
             Slot Tracker App
           </h1>
         </div>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
             Sign in to your account
           </h2>
         </div>
@@ -46,7 +46,7 @@ export default function Login({ deleteTokens }){
                 datapass()
             }}>
             <div>
-              <label htmlFor="userName" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="userName" className="block text-sm font-medium leading-6 text-gray-500">
                 Username
               </label>
               <div className="mt-2">
@@ -60,7 +60,7 @@ export default function Login({ deleteTokens }){
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-500">
                   Password
                 </label>
               </div>
