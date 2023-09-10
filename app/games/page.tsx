@@ -104,7 +104,7 @@ const Page = async ({
           <table className="w-screen table-auto">
             <thead className="bg-slate-300 text-indigo-600">
               <tr>
-                <th className="px-4 py-2">Edit</th>
+                <th className="px-4 py-2"></th>
                 <th className="px-4 py-2">Casino</th>
                 <th className="px-4 py-2">Machine</th>
                 <th className="px-4 py-2">Session Start</th>
@@ -116,7 +116,7 @@ const Page = async ({
                 <th className="px-4 py-2">Win</th>
                 <th className="px-4 py-2">Loss</th>
                 <th className="px-4 py-2">Notes</th>
-                <th className="px-4 py-2">Delete</th>
+                <th className="px-4 py-2"></th>
               </tr>
             </thead>
             <tbody>
