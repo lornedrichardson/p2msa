@@ -7,14 +7,6 @@
       "layer": {
         "app/page": "rsc"
       }
-    },
-    "5b58a709ebd3b545685eef8449629815ce330325": {
-      "workers": {
-        "app/games/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CUNLV-Coding%5C%5Cmilestone%5C%5Cp2%5C%5C%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%5C%5Cp2msa%5C%5Capp%5C%5Cgames%5C%5Cpage.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/games/page": "rsc"
-      }
     }
   },
   "edge": {}

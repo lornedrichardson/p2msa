@@ -19,33 +19,8 @@ const Push = () => {
                                 <div className="hidden md:block">
                                     <div className=" flex items-baseline space-x-4">
                                         <a onClick={() => { router.push('/games/create/') }} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Create New</a>
-
-                                        <form onSubmit={(e) => {
-                                            e.preventDefault();
-                                            router.push(`/games/edit/${editData}`)
-                                        }}>
-                                            <button type="submit" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Edit</button>
-                                            <input type="text" className="rounded-md" onChange={(e) => { setEditData(e.target.value) }} />
-                                        </form>
-
-                                        <form onSubmit={async (e) => {
-                                            const response = confirm("Are you sure you want to do that?");
-                                            if (response) {
-                                                await fetch('api/games', {
-                                                    method: 'DELETE',
-                                                    headers: { "Content-type": "application/json; charset=UTF-8" },
-                                                    body: JSON.stringify({ session_id: Number(deleteData) })
-                                                })
-                                                alert("Delete succeed");
-                                            } else {
-                                                alert("Cancel was pressed");
-                                            }
-                                        }}>
-                                            <button type="submit" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Delete</button>
-                                            <input type="text" className="rounded-md" onChange={(e) => { setDeleteData(e.target.value) }} />
-                                        </form>
                                         <button
-                                            className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                            className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium justify-end"
                                             onClick={() => {
                                                 router.push('/')
                                             }}>Sign Out</button>
