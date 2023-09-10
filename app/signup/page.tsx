@@ -17,7 +17,6 @@ export default function Page() {
                 body: JSON.stringify({ username: username, password: password })
             })
             const data = await result.json()
-            console.log(data)
             if (data.isCreate) {
                 push(`/login`)
             } else {
@@ -39,7 +38,12 @@ export default function Page() {
                 <form className="space-y-6"
                     onSubmit={(e) => {
                         e.preventDefault()
-                        datapass()
+                        if(username !== '' && password !== ''){
+                            datapass()
+                        }
+                        else{
+                            alert('Please try different username and password')
+                        }
                     }}>
                     <div>
                         <label className="block text-sm font-medium leading-6 text-gray-400">User name</label>

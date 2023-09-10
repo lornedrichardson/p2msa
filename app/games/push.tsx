@@ -44,6 +44,11 @@ const Push = () => {
                                             <button type="submit" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Delete</button>
                                             <input type="text" className="rounded-md" onChange={(e) => { setDeleteData(e.target.value) }} />
                                         </form>
+                                        <button
+                                            className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                            onClick={() => {
+                                                router.push('/')
+                                            }}>Sign Out</button>
                                     </div>
                                 </div>
                             </div>

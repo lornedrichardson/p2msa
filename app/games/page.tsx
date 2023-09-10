@@ -3,8 +3,10 @@ import Filters from "./filters"
 import { cookies } from 'next/headers'
 import Push from "./push"
 import '../../styles/globals.css'
+import { redirect } from 'next/navigation'
 
 const Page = async ({
+  
   searchParams
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -22,6 +24,10 @@ const Page = async ({
     typeof searchParams.gameName === 'string' ? searchParams.gameName : undefined
   const time =
     typeof searchParams.timeStart === 'string' ? searchParams.timeStart : undefined
+
+  if(cookies().get('user_id') === undefined){
+    redirect('/')
+  }else{
 
   const auth = cookies().get('user_id').value
   const where = {
@@ -49,6 +55,9 @@ const Page = async ({
   let display = allGameData.map((arr, index) => {
     const rowData = Object.getOwnPropertyNames(arr).map((prop) => {
       const data = Object.getOwnPropertyDescriptor(arr, prop).value;
+      if(prop === 'user_id'){
+        return null
+      }
       if (prop === 'session_start' || prop === 'session_stop') {
         const time = String(data).slice(0, 24);
         return (
@@ -77,14 +86,13 @@ const Page = async ({
 
   return (
     <div className="h-screen bg-slate-200">
-      <Push />
+      <Push/>
       <Filters />
       <div className="container">
         <table className="w-screen table-auto">
           <thead className="bg-slate-300 text-indigo-600">
             <tr>
               <th className="px-4 py-2">Session ID</th>
-              <th className="px-4 py-2">User ID</th>
               <th className="px-4 py-2">Casino</th>
               <th className="px-4 py-2">Machine</th>
               <th className="px-4 py-2">Session Start</th>
@@ -105,6 +113,7 @@ const Page = async ({
       </div>
     </div>
   );
+  }
 }
 
 export default Page
