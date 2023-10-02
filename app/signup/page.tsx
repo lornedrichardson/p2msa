@@ -18,7 +18,7 @@ export default function Page() {
             })
             const data = await result.json()
             if (data.isCreate) {
-                push(`/login`)
+                push(`/`)
             } else {
                 setIsCreate(data.isCreate)
             }
